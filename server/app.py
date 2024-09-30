@@ -13,12 +13,12 @@ def index():
 @app.route('/print/<string:parameter>')
 def print_string(parameter):
     print(parameter)  # This prints the string to the console
-    return f"<p>{parameter}</p>"
+    return f"{parameter}"
 
 # View to count up to the provided number
 @app.route('/count/<int:parameter>')
 def count(parameter):
-    return "<br>".join([str(i) for i in range(parameter)])
+    return "\n".join([str(i) for i in range(parameter)])
 
 # View to perform basic math operations
 @app.route('/math/<int:num1>/<string:operation>/<int:num2>')
@@ -36,7 +36,7 @@ def math(num1, operation, num2):
     else:
         return "Invalid operation", 400
     
-    return f"<p>{num1} {operation} {num2} = {result}</p>"
+    return f"{result}"
 
 # Run the app
 if __name__ == '__main__':
